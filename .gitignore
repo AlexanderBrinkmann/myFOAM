@@ -1,0 +1,12 @@
+# Ignore MATLAB temp files
+*.asv
+*.mlappinstall
+
+# Skip any big data or outputs
+results/
+*.mat
+*.fig
+
+# If you have secrets or junk
+testing_things.m
+diferent_cellnum.m
