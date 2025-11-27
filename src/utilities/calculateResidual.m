@@ -6,11 +6,11 @@ function residual = calculateResidual(foam)
     for i = 1:length(fieldList)
 
         if ~fieldList{i}.dependant
-            delta = max(abs(fieldList{i}.value - oldFieldList{i}.value));
+            delta(i) = max(abs(fieldList{i}.value - oldFieldList{i}.value), [], 'all');
         end
 
     end
 
-    residual = max(abs(delta));
+    residual = max(delta);
 
 end
