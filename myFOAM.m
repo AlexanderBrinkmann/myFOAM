@@ -1,4 +1,4 @@
-function myFOAM(thisMesh)
+function output = myFOAM(thisMesh)
 
     foam = controlDict();
     foam.mesh = thisMesh;
@@ -43,5 +43,7 @@ function myFOAM(thisMesh)
     end
 
     disp('Finished!')
+
+    output = foam.fields.T.value;
 
 end
