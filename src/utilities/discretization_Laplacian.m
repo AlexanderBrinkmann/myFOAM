@@ -18,7 +18,7 @@ function aCoeficients = discretization_Laplacian(aCoeficients, thisMesh, diffusi
     
             C_delta = 1/norm(thisFace.neighbour.centre - thisFace.owner.centre);
 
-            aCoeficients(owner.id, neighbour.id) = thisFace.areaMagnitude*faceDiffusivity*C_delta;
+            aCoeficients(owner.id, neighbour.id) = -thisFace.areaMagnitude*faceDiffusivity*C_delta;
             aCoeficients(neighbour.id, owner.id) = aCoeficients(owner.id, neighbour.id);
 
         end

@@ -1,4 +1,4 @@
-function foam = setUpCase(foam)
+function foam = setUpCase(foam, parameter)
 
     % Initialize fields (to be written by the user)
     %
@@ -33,7 +33,7 @@ function foam = setUpCase(foam)
             case 'adiabatic'
                 foam.mesh.faceList(f).patch_obj = FixedGradient(0);
             case 'convectionHot'
-                foam.mesh.faceList(f).patch_obj = Convection(250, 20);
+                foam.mesh.faceList(f).patch_obj = Convection(250, 200);
             case 'convectionCold'
                 foam.mesh.faceList(f).patch_obj = Convection(250, 10);
             case 'fixedT'
@@ -42,6 +42,20 @@ function foam = setUpCase(foam)
                 % do nothing
             otherwise
                 warning('Unknown patch type: %s', foam.mesh.faceList(f).patch_name);
+        end
+        end
+    end
+
+
+    for c = 1:length(foam.mesh.cellList)
+        if ~isempty(foam.mesh.cellList(c).patch_name)
+        switch foam.mesh.cellList(c).patch_name
+            case 'internalSource'
+                foam.mesh.cellList(c).patch_obj = InternalSource(1000);
+            case ''  % internal face
+                % do nothing
+            otherwise
+                warning('Unknown patch type: %s', foam.mesh.cellList(f).patch_name);
         end
         end
     end

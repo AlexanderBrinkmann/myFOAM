@@ -15,9 +15,9 @@ function [aCoeficients, bCoeficients] = applyBoundaryConditions(foam, aCoeficien
     %Loop through cells
     for c = 1:length(foam.mesh.cellList)
 
-        if ~(isempty(foam.mesh.cellList(c).patch_cell))
+        if ~(isempty(foam.mesh.cellList(c).patch_obj))
 
-            foam.mesh.cellList(c).patch_cell.applyBC(foam.mesh.cellList(c));
+            [aCoeficients, bCoeficients] = foam.mesh.cellList(c).patch_obj.applyBC(foam.mesh.cellList(c), aCoeficients, bCoeficients);
 
         end
 

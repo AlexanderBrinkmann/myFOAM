@@ -3,8 +3,8 @@ function x = Gauss_Seidel(A,b)
 
     % Algorithm source from Wikipedia: 
 
-    x = 100*ones([size(b),1]);
-    x_next = zeros([size(x),1]);
+    x = 100*ones([size(b),1]).';
+    x_next = zeros([size(x),1]).';
 
 
     iteration = 0;

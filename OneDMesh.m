@@ -92,6 +92,10 @@ thisMesh.faceList = faceList;
 thisMesh.pointList = pointList;
 thisMesh.cellnum = N;
 
+for c = 1:thisMesh.cellnum
+    thisMesh.cellList(c).patch_name = 'internalSource';
+end
+
 output = thisMesh;
 
 end

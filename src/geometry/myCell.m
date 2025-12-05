@@ -5,7 +5,8 @@ classdef myCell < handle
         id
         faces
 
-        patch_cell
+        patch_name
+        patch_obj
 
         fields
 
@@ -27,7 +28,7 @@ classdef myCell < handle
 
             thisCell.faces = faces;
             thisCell.id = p.Results.id;
-            thisCell.patch_cell = p.Results.patch;
+            thisCell.patch_name = p.Results.patch;
             thisCell.fields = p.Results.fields;
 
 %% %%%%%%%%%%%%%

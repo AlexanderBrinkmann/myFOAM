@@ -1,8 +1,8 @@
-function output = myFOAM(thisMesh)
+function output = myFOAM(thisMesh, parameter)
 
     foam = controlDict();
     foam.mesh = thisMesh;
-    foam = setUpCase(foam);
+    foam = setUpCase(foam, parameter);
 
 
     foam.run.currentTime = foam.run.startTime;
